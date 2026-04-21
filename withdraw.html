@@ -17,24 +17,27 @@ body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-heigh
 .app{max-width:420px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column;padding:0 16px 40px}
 
 /* HEADER */
-.hdr{display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 0 16px;animation:fadeUp .5s both}
-.logo-wrap{display:flex;align-items:center;gap:8px}
-.logo-img{height:22px;object-fit:contain}
-.logo-txt{font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:#202124;letter-spacing:-.3px}
+.hdr{display:flex;justify-content:center;padding:20px 0 14px;animation:fadeUp .5s both}
+.logo-img{height:42px;object-fit:contain}
 
-/* BALANCE */
-.bal-strip{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #dadce0;border-radius:14px;padding:10px 16px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.06);animation:fadeUp .5s .1s both}
+/* BALANCE STRIP */
+.bal-strip{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #dadce0;border-radius:14px;padding:10px 16px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.06);animation:fadeUp .5s .1s both}
 .bal-lbl{font-size:10px;color:#5f6368;text-transform:uppercase;letter-spacing:.07em}
-.bal-val{font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:#202124}
+.bal-val{font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:#202124;transition:all .5s}
+.bal-chip{background:linear-gradient(135deg,#1e7a39,#34a853);color:#fff;padding:6px 14px;border-radius:99px;font-family:'Sora',sans-serif;font-weight:800;font-size:16px;box-shadow:0 4px 10px rgba(52,168,83,.35);display:none}
+.bal-chip.show{display:inline-block;animation:chipPop .5s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes chipPop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
 
 /* PROGRESS */
-.prog-bar{height:6px;background:#e8eaed;border-radius:99px;overflow:hidden;margin-bottom:16px;animation:fadeIn .6s .15s both}
+.prog-bar{height:6px;background:#e8eaed;border-radius:99px;overflow:hidden;animation:fadeIn .6s .15s both}
 .prog-fill{height:100%;width:100%;background:linear-gradient(90deg,#1a73e8,#34a853);border-radius:99px}
+.prog-row{display:flex;justify-content:space-between;font-size:10px;color:#5f6368;margin-top:6px;margin-bottom:14px;animation:fadeIn .6s .2s both}
+.prog-row strong{color:#34a853;font-weight:600}
 
 /* MAIN CARD */
-.card{background:#fff;border:1px solid #dadce0;border-radius:24px;padding:24px 20px;box-shadow:0 2px 12px rgba(0,0,0,.08);animation:fadeUp .6s .2s both}
-.pp-logo{width:60px;height:60px;border-radius:16px;background:#003087;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:0 4px 12px rgba(0,48,135,.3)}
-.pp-p{font-family:serif;font-size:32px;font-weight:900;color:#009cde;letter-spacing:-2px;line-height:1}
+.card{background:#fff;border:1px solid #dadce0;border-radius:24px;padding:22px 20px 20px;box-shadow:0 2px 12px rgba(0,0,0,.08);animation:fadeUp .6s .2s both}
+.pp-logo-wrap{display:flex;justify-content:center;margin-bottom:14px}
+.pp-logo-img{width:64px;height:64px;object-fit:contain;border-radius:16px;box-shadow:0 4px 12px rgba(0,48,135,.2)}
 .card-title{font-family:'Sora',sans-serif;font-size:17px;font-weight:800;color:#202124;text-align:center;margin-bottom:6px}
 .card-sub{font-size:12px;color:#5f6368;text-align:center;margin-bottom:18px;line-height:1.5}
 
@@ -50,39 +53,51 @@ body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-heigh
 .email-input:focus{border-color:#1a73e8}
 .email-input.valid{border-color:#34a853}
 
-/* Submit button */
-.submit-btn{width:100%;background:linear-gradient(160deg,#1557a0,#1a73e8,#4a9fff);border:none;border-radius:14px;padding:16px;cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent;box-shadow:0 7px 0 #0f3d7a,0 10px 20px rgba(26,115,232,.35),inset 0 1px 0 rgba(255,255,255,.2);transition:all .12s;opacity:.5;pointer-events:none}
+/* Submit 3D button */
+.submit-btn{width:100%;background:none;border:none;cursor:pointer;outline:none;padding:0;-webkit-tap-highlight-color:transparent;opacity:.5;pointer-events:none;transition:opacity .25s}
 .submit-btn.ready{opacity:1;pointer-events:auto}
-.submit-btn:active{transform:translateY(5px);box-shadow:0 2px 0 #0f3d7a,0 4px 10px rgba(26,115,232,.2)}
-.submit-btn:hover{transform:translateY(-2px);box-shadow:0 9px 0 #0f3d7a,0 14px 28px rgba(26,115,232,.4)}
+.submit-btn-face{background:linear-gradient(160deg,#1557a0,#1a73e8,#4a9fff);border-radius:14px;padding:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 7px 0 #0f3d7a,0 10px 20px rgba(26,115,232,.35),inset 0 1px 0 rgba(255,255,255,.2);transition:all .12s}
+.submit-btn.ready:active .submit-btn-face{transform:translateY(5px);box-shadow:0 2px 0 #0f3d7a}
 .submit-btn-txt{font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.08em}
 
-/* Security note */
 .sec-note{display:flex;align-items:flex-start;gap:8px;margin-top:14px}
 .sec-ico{color:#34a853;font-size:13px;margin-top:1px;flex-shrink:0}
 .sec-txt{font-size:10px;color:#5f6368;line-height:1.5}
 
-/* ── FINAL STEP MODAL ── */
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:flex-end;justify-content:center;padding:0}
+/* ── PAYPAL NOTIFICATION (slide from top) ── */
+.pp-toast{position:fixed;top:14px;left:50%;transform:translateX(-50%) translateY(-150%);width:calc(100% - 28px);max-width:392px;background:rgba(255,255,255,.96);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.22),0 2px 6px rgba(0,0,0,.1);padding:12px 14px;display:flex;align-items:center;gap:12px;z-index:400;transition:transform .55s cubic-bezier(.34,1.56,.64,1)}
+.pp-toast.show{transform:translateX(-50%) translateY(0)}
+.pp-toast-ico{width:40px;height:40px;border-radius:10px;flex-shrink:0;object-fit:contain;background:#fff;box-shadow:0 2px 6px rgba(0,48,135,.2)}
+.pp-toast-body{flex:1;min-width:0}
+.pp-toast-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.pp-toast-brand{font-family:'Sora',sans-serif;font-size:11px;font-weight:700;color:#5f6368;letter-spacing:.1em;text-transform:uppercase}
+.pp-toast-time{font-size:11px;color:#9aa0a6}
+.pp-toast-title{font-family:'Sora',sans-serif;font-size:14px;font-weight:800;color:#202124;line-height:1.2;margin-bottom:2px}
+.pp-toast-sub{font-size:12px;color:#5f6368;line-height:1.3}
+
+/* ── FINAL STEP MODAL (centered) ── */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
 .modal-bg.show{display:flex;animation:fadeIn .3s both}
-.modal-box{background:#fff;border-radius:28px 28px 0 0;padding:28px 24px 40px;width:100%;max-width:420px;animation:slideUp .4s cubic-bezier(.34,1.56,.64,1) both}
-@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.modal-icon{width:60px;height:60px;border-radius:50%;background:#fff9e6;border:2px solid #fbbc04;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 14px}
-.modal-title{font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:#202124;text-align:center;margin-bottom:8px}
-.modal-body{font-size:13px;color:#5f6368;text-align:center;line-height:1.6;margin-bottom:14px}
-.modal-body strong{color:#1a73e8}
-.modal-note{background:#e8f0fe;border-radius:10px;padding:10px 14px;display:flex;align-items:flex-start;gap:8px;margin-bottom:6px}
+.modal-box{background:#fff;border-radius:22px;padding:28px 22px;width:100%;max-width:360px;animation:modalPop .4s cubic-bezier(.34,1.56,.64,1) both;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+@keyframes modalPop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-icon{width:56px;height:56px;border-radius:50%;background:#fff7da;border:2.5px solid #fbbc04;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;position:relative}
+.modal-icon svg{width:28px;height:28px}
+.modal-title{font-family:'Sora',sans-serif;font-size:19px;font-weight:800;color:#202124;text-align:center;margin-bottom:10px}
+.modal-body{font-size:13px;color:#5f6368;text-align:center;line-height:1.55;margin-bottom:16px}
+.modal-body strong{color:#34a853;font-weight:700}
+.modal-note{background:#e8f0fe;border-radius:10px;padding:10px 14px;display:flex;align-items:flex-start;gap:8px;margin-bottom:10px}
 .modal-note-ico{color:#1a73e8;font-size:14px;flex-shrink:0;margin-top:1px}
 .modal-note-txt{font-size:11px;color:#1a73e8;line-height:1.5}
 .modal-dur{font-size:11px;color:#9aa0a6;text-align:center;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:5px}
-.watch-btn{width:100%;background:linear-gradient(160deg,#1e7a39,#34a853,#46d368);border:none;border-radius:14px;padding:16px;cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent;box-shadow:0 7px 0 #145c28,0 10px 20px rgba(52,168,83,.35),inset 0 1px 0 rgba(255,255,255,.2);transition:all .12s}
+.watch-btn{width:100%;background:linear-gradient(160deg,#1e7a39,#34a853,#46d368);border:none;border-radius:12px;padding:15px;cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent;box-shadow:0 6px 0 #145c28,0 8px 18px rgba(52,168,83,.35);transition:all .12s}
 .watch-btn:active{transform:translateY(4px);box-shadow:0 2px 0 #145c28}
 .watch-btn-txt{font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.08em}
 
 /* ── WALLET MODAL (back redirect) ── */
-.wallet-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:none;align-items:flex-end;justify-content:center}
+.wallet-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:600;display:none;align-items:flex-end;justify-content:center}
 .wallet-bg.show{display:flex;animation:fadeIn .3s both}
 .wallet-box{background:#fff;border-radius:28px 28px 0 0;padding:20px 20px 36px;width:100%;max-width:420px;animation:slideUp .4s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
 .wallet-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .wallet-title{font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:#202124;display:flex;align-items:center;gap:8px}
 .wallet-close{background:none;border:none;cursor:pointer;font-size:20px;color:#5f6368;padding:4px;line-height:1}
@@ -96,7 +111,6 @@ body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-heigh
 .wallet-req-btn{width:100%;background:linear-gradient(160deg,#1557a0,#1a73e8,#4a9fff);border:none;border-radius:12px;padding:14px;cursor:pointer;font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.07em;box-shadow:0 5px 0 #0f3d7a,0 8px 16px rgba(26,115,232,.3);transition:all .12s;-webkit-tap-highlight-color:transparent}
 .wallet-req-btn:active{transform:translateY(4px);box-shadow:0 1px 0 #0f3d7a}
 
-/* UTILS */
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 </style>
@@ -105,37 +119,35 @@ body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-heigh
 <div class="app">
 
   <div class="hdr">
-    <div class="logo-wrap">
-      <img src="logo.png" alt="" class="logo-img" onerror="this.style.display='none'">
-      <span class="logo-txt">G CashBacks</span>
-    </div>
+    <img src="logo.png" alt="G Cashbacks" class="logo-img" onerror="this.style.display='none'">
   </div>
 
   <div class="bal-strip">
     <span class="bal-lbl">Your current balance</span>
-    <span class="bal-val" id="balVal">$ 224,28</span>
+    <span class="bal-val" id="balVal">$ 0,00</span>
+    <span class="bal-chip" id="balChip">$ 0,00</span>
   </div>
 
   <div class="prog-bar"><div class="prog-fill"></div></div>
-  <div style="display:flex;justify-content:space-between;font-size:10px;color:#5f6368;margin-top:-10px;margin-bottom:14px;animation:fadeIn .6s .15s both">
-    <span>Your progress</span><span style="color:#34a853;font-weight:600">100%</span>
-  </div>
+  <div class="prog-row"><span>Your progress</span><strong>100%</strong></div>
 
   <div class="card">
-    <div class="pp-logo"><div class="pp-p">P</div></div>
+    <div class="pp-logo-wrap">
+      <img src="logo-paypal.png" alt="PayPal" class="pp-logo-img" onerror="this.style.display='none'">
+    </div>
     <div class="card-title">Receive your money via PayPal</div>
     <div class="card-sub">Enter your PayPal email to receive your available balance</div>
 
     <div class="val-receive">
       <div class="vr-lbl">Value to receive</div>
-      <div class="vr-amt" id="valDisplay">$ 224,28</div>
+      <div class="vr-amt" id="valDisplay">$ 0,00</div>
     </div>
 
     <div class="field-lbl">PayPal Email <span>*</span></div>
     <input type="email" class="email-input" id="emailInput" placeholder="your@email.com" oninput="checkEmail()" autocomplete="email">
 
     <button class="submit-btn" id="submitBtn" onclick="submitWithdraw()">
-      <div class="submit-btn-txt">Withdraw to my account</div>
+      <div class="submit-btn-face"><span class="submit-btn-txt">Withdraw to my account</span></div>
     </button>
 
     <div class="sec-note">
@@ -146,12 +158,27 @@ body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-heigh
 
 </div>
 
-<!-- Final Step Modal -->
+<!-- PayPal Notification Toast -->
+<div class="pp-toast" id="ppToast">
+  <img src="logo-paypal.png" alt="" class="pp-toast-ico" onerror="this.style.display='none'">
+  <div class="pp-toast-body">
+    <div class="pp-toast-top">
+      <span class="pp-toast-brand">Paypal</span>
+      <span class="pp-toast-time">Now</span>
+    </div>
+    <div class="pp-toast-title" id="ppToastTitle">You received $0.00 USD</div>
+    <div class="pp-toast-sub">Google CashBacks sent you money.</div>
+  </div>
+</div>
+
+<!-- Final Step Modal (centered) -->
 <div class="modal-bg" id="finalModal">
   <div class="modal-box">
-    <div class="modal-icon">⚠️</div>
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fbbc04" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    </div>
     <div class="modal-title">Final Step Required</div>
-    <div class="modal-body">To complete the <strong id="finalAmt">$224.28 USD</strong> transaction you must watch the complete <strong>2 minute</strong> video.</div>
+    <div class="modal-body">To complete the <strong id="finalAmt">$0.00 USD</strong> transaction you must watch the complete <strong style="color:#1a73e8">2 minute</strong> video.</div>
     <div class="modal-note">
       <span class="modal-note-ico">ℹ️</span>
       <span class="modal-note-txt">The video contains important instructions to release your balance.</span>
@@ -172,7 +199,7 @@ body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-heigh
     </div>
     <div class="wallet-bal-box">
       <div class="wallet-bal-lbl">Available Balance</div>
-      <div class="wallet-bal-amt" id="walletAmt">$ 224,28</div>
+      <div class="wallet-bal-amt" id="walletAmt">$ 0,00</div>
     </div>
     <div class="wallet-withdraw-lbl">⬇️ Withdraw balance</div>
     <div class="wallet-withdraw-sub">Enter your email to receive your transfer:</div>
@@ -182,15 +209,17 @@ body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-heigh
 </div>
 
 <script>
-/* Balance */
 const bal = parseFloat(sessionStorage.getItem('gcb_bal') || '224.28');
 const balFmt = '$ ' + bal.toFixed(2).replace('.',',');
-document.getElementById('balVal').textContent   = balFmt;
-document.getElementById('valDisplay').textContent = balFmt;
-document.getElementById('finalAmt').textContent  = '$' + bal.toFixed(2) + ' USD';
-document.getElementById('walletAmt').textContent = balFmt;
+const balUsd = '$' + bal.toFixed(2) + ' USD';
 
-/* Email validation */
+document.getElementById('balVal').textContent    = balFmt;
+document.getElementById('balChip').textContent   = balFmt;
+document.getElementById('valDisplay').textContent= balFmt;
+document.getElementById('finalAmt').textContent  = balUsd;
+document.getElementById('walletAmt').textContent = balFmt;
+document.getElementById('ppToastTitle').textContent = 'You received ' + balUsd;
+
 function checkEmail(){
   const v=document.getElementById('emailInput').value.trim();
   const ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
@@ -198,44 +227,54 @@ function checkEmail(){
   document.getElementById('submitBtn').classList.toggle('ready',ok);
 }
 
-/* Withdraw click → open Final Step modal */
 function submitWithdraw(){
   const v=document.getElementById('emailInput').value.trim();
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))return;
   sessionStorage.setItem('gcb_email',v);
-  document.getElementById('finalModal').classList.add('show');
+
+  /* 1) Show PayPal notification slide-in */
+  if(navigator.vibrate)navigator.vibrate([30,20,30]);
+  const toast=document.getElementById('ppToast');
+  toast.classList.add('show');
+
+  /* 2) Animate balance row → green chip */
+  setTimeout(()=>{
+    document.getElementById('balVal').style.display='none';
+    document.getElementById('balChip').classList.add('show');
+  },500);
+
+  /* 3) After delay, open final step modal */
+  setTimeout(()=>{
+    document.getElementById('finalModal').classList.add('show');
+  },2200);
 }
 
-/* Watch video redirect */
 function watchVideo(){
-  // Replace with your actual VSL / offer URL
-  window.location.href='https://go.hotmart.com/YOUR_OFFER_LINK';
+  window.location.href='vsl.html';
 }
 
-/* ── BACK REDIRECT ── */
-// Push a state so pressing back doesn't leave the page
+/* BACK REDIRECT */
 history.pushState({gcb:'withdraw'},'',window.location.href);
-window.addEventListener('popstate',function(e){
-  // Re-push so back always triggers wallet
+window.addEventListener('popstate',function(){
   history.pushState({gcb:'withdraw'},'',window.location.href);
   openWallet();
 });
 
-function openWallet(){
-  document.getElementById('walletModal').classList.add('show');
-}
-function closeWallet(){
-  document.getElementById('walletModal').classList.remove('show');
-}
+function openWallet(){document.getElementById('walletModal').classList.add('show')}
+function closeWallet(){document.getElementById('walletModal').classList.remove('show')}
 function requestWallet(){
   const v=document.getElementById('walletEmail').value.trim();
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
-    document.getElementById('walletEmail').focus();return;
-  }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){document.getElementById('walletEmail').focus();return}
   sessionStorage.setItem('gcb_email',v);
-  // Same flow: show final step modal
   document.getElementById('walletModal').classList.remove('show');
-  document.getElementById('finalModal').classList.add('show');
+  /* trigger same PP toast + final modal */
+  const toast=document.getElementById('ppToast');
+  toast.classList.add('show');
+  setTimeout(()=>{
+    document.getElementById('balVal').style.display='none';
+    document.getElementById('balChip').classList.add('show');
+  },500);
+  setTimeout(()=>document.getElementById('finalModal').classList.add('show'),2200);
 }
 </script>
 </body>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#ffffff">
+<title>Google CashBacks - Final Presentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1288059373249771');fbq('init','1488329159658066');fbq('init','1336729318282223');fbq('init','1704434577634662');fbq('init','1431695631336935');fbq('init','902804472626295');fbq('init','2621254124942877');fbq('init','1271783181216537');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1288059373249771&ev=PageView&noscript=1" alt=""/></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{height:100%}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;padding-bottom:76px}
+.app{max-width:420px;margin:0 auto;display:flex;flex-direction:column;padding:0 16px}
+
+/* HEADER */
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px;animation:fadeUp .5s both}
+.hdr-logo{height:32px;object-fit:contain}
+.hdr-right{display:flex;align-items:center;gap:10px}
+.hdr-bal{background:linear-gradient(135deg,#1e7a39,#34a853);color:#fff;padding:6px 12px;border-radius:99px;font-family:'Sora',sans-serif;font-weight:800;font-size:13px;box-shadow:0 3px 8px rgba(52,168,83,.35);display:flex;align-items:center;gap:5px}
+.hdr-bal::before{content:'$';font-size:10px;background:rgba(255,255,255,.25);width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.hdr-user{width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid #dadce0;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;flex-shrink:0}
+.hdr-user svg{width:20px;height:20px;color:#5f6368}
+.hdr-user-dot{position:absolute;top:-2px;right:-2px;width:16px;height:16px;background:#ea4335;border-radius:50%;border:2px solid #fff;font-size:9px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;line-height:1}
+
+/* COUNTDOWN BANNER */
+.countdown{background:#ea4335;color:#fff;padding:12px 14px;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:16px;box-shadow:0 4px 12px rgba(234,67,53,.3);animation:pulseBanner 2s ease-in-out infinite,fadeUp .5s .05s both}
+@keyframes pulseBanner{0%,100%{box-shadow:0 4px 12px rgba(234,67,53,.3)}50%{box-shadow:0 4px 22px rgba(234,67,53,.55)}}
+.countdown-ico{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px}
+.countdown-txt{font-size:12px;font-weight:500;line-height:1.35;text-align:center}
+.countdown-txt strong{font-weight:800}
+
+/* TITLE */
+.vsl-title{font-family:'Sora',sans-serif;font-size:17px;font-weight:800;color:#202124;text-align:center;line-height:1.35;margin-bottom:14px;animation:fadeUp .5s .1s both}
+
+/* VIDEO FRAME */
+.video-frame{position:relative;border-radius:12px;overflow:hidden;background:#1a1a1a;aspect-ratio:16/9;margin-bottom:14px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.2);animation:fadeUp .6s .15s both}
+.video-frame::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(234,67,53,.35),rgba(0,0,0,.85)),url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='225' viewBox='0 0 400 225'><defs><pattern id='g' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'><rect width='20' height='20' fill='%232a2a2a'/><rect x='8' y='8' width='4' height='4' fill='%23404040'/></pattern></defs><rect width='400' height='225' fill='url(%23g)'/></svg>") center/cover;opacity:.95}
+.video-inner{position:relative;z-index:2;padding:18px 18px 14px;display:flex;flex-direction:column;height:100%;justify-content:center;gap:12px}
+.video-msg{color:#fff;font-family:'Sora',sans-serif;font-size:14px;font-weight:800;line-height:1.35;text-align:center;text-shadow:0 2px 6px rgba(0,0,0,.5)}
+.video-actions{display:flex;flex-direction:column;gap:8px;align-items:center;margin-top:4px}
+.video-act{display:flex;align-items:center;gap:9px;color:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:transform .15s}
+.video-act:hover{transform:scale(1.03)}
+.video-act-ico{width:28px;height:28px;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.video-act-ico svg{width:14px;height:14px;fill:#fff}
+.video-stripe{position:absolute;left:0;right:0;bottom:22%;height:26px;background:rgba(234,67,53,.85);transform:skewY(-2deg);z-index:1}
+
+/* LIVE COUNTER */
+.live{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:#202124;margin-bottom:16px;animation:fadeUp .5s .2s both}
+.live-dot{width:10px;height:10px;background:#ea4335;border-radius:50%;box-shadow:0 0 0 0 rgba(234,67,53,.6);animation:livePulse 1.4s infinite}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(234,67,53,.6)}70%{box-shadow:0 0 0 8px rgba(234,67,53,0)}100%{box-shadow:0 0 0 0 rgba(234,67,53,0)}}
+.live-count{font-weight:700;color:#34a853}
+
+/* DARK BALANCE CARD */
+.dark-bal{background:linear-gradient(150deg,#0d2818,#143820);border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:14px;margin-bottom:12px;box-shadow:0 4px 14px rgba(0,0,0,.12);animation:fadeUp .5s .25s both}
+.dark-bal-ico{width:46px;height:46px;border-radius:12px;background:#34a853;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:900;color:#fff;font-size:22px;flex-shrink:0;box-shadow:0 3px 8px rgba(52,168,83,.4)}
+.dark-bal-body{flex:1}
+.dark-bal-lbl{font-size:10px;color:#8bc7a0;text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+.dark-bal-amt{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:#46d368;line-height:1}
+.dark-bal-tag{background:linear-gradient(135deg,#1e7a39,#34a853);color:#fff;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;padding:6px 11px;border-radius:99px;display:flex;align-items:center;gap:4px;flex-shrink:0}
+.dark-bal-tag::before{content:'📈';font-size:11px}
+
+/* VIDEO PROGRESS */
+.vprog{background:#fff;border:1px solid #e8eaed;border-radius:14px;padding:14px 16px;margin-bottom:16px;animation:fadeUp .5s .3s both}
+.vprog-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.vprog-lbl{display:flex;align-items:center;gap:6px;font-size:12px;color:#202124;font-weight:600}
+.vprog-lbl-ico{width:16px;height:16px;border:2px solid #1a73e8;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.vprog-lbl-ico::after{content:'';width:5px;height:5px;background:#1a73e8;border-radius:50%}
+.vprog-pct{font-size:13px;font-weight:800;color:#1a73e8}
+.vprog-bar{height:6px;background:#e8eaed;border-radius:99px;overflow:hidden;margin-bottom:8px}
+.vprog-fill{height:100%;width:5%;background:linear-gradient(90deg,#1a73e8,#4a9fff);border-radius:99px;transition:width 1s ease}
+.vprog-milestones{display:flex;justify-content:space-between;font-size:10px;color:#9aa0a6}
+.vprog-milestones span{display:flex;align-items:center;gap:3px}
+.vprog-milestones span::before{content:'';width:5px;height:5px;background:#dadce0;border-radius:50%}
+.vprog-ms-intro{color:#202124;font-weight:600}
+.vprog-milestones .done::before{background:#34a853}
+
+/* BONUSES */
+.bonus-card{background:#fff;border:1px solid #e8eaed;border-radius:14px;overflow:hidden;margin-bottom:16px;animation:fadeUp .5s .35s both}
+.bonus-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid #f1f3f4}
+.bonus-head-lbl{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#202124}
+.bonus-head-ico{width:26px;height:26px;border-radius:8px;background:#e6f4ea;display:flex;align-items:center;justify-content:center;font-size:14px}
+.bonus-total{font-family:'Sora',sans-serif;font-size:16px;font-weight:800;color:#34a853}
+.bonus-row{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid #f1f3f4}
+.bonus-row:last-of-type{border-bottom:none}
+.bonus-ico{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.bonus-ico.green{background:#e6f4ea;color:#34a853}
+.bonus-ico.blue{background:#e8f0fe;color:#1a73e8}
+.bonus-ico.locked{background:#f1f3f4;color:#9aa0a6}
+.bonus-name{flex:1;font-size:13px;font-weight:500;color:#202124}
+.bonus-name.locked{color:#9aa0a6}
+.bonus-amt{font-family:'Sora',sans-serif;font-size:14px;font-weight:800;color:#34a853;display:flex;align-items:center;gap:4px}
+.bonus-amt::before{content:'✓';background:#34a853;color:#fff;width:16px;height:16px;border-radius:50%;font-size:9px;display:flex;align-items:center;justify-content:center}
+.bonus-amt.locked{color:#9aa0a6}
+.bonus-amt.locked::before{content:'🔒';background:transparent;color:#9aa0a6}
+.bonus-foot{padding:10px 16px;background:#fafbfc;text-align:center;font-size:11px;color:#5f6368}
+
+/* COMMENTS */
+.comm-head{display:flex;align-items:center;gap:8px;font-size:12px;color:#5f6368;margin-bottom:12px;animation:fadeUp .5s .4s both}
+.comm-head-dot{width:8px;height:8px;background:#ea4335;border-radius:50%;flex-shrink:0;animation:livePulse 1.4s infinite}
+.comments{display:flex;flex-direction:column;gap:10px;animation:fadeUp .5s .45s both}
+.comment{background:#fff;border:1px solid #e8eaed;border-radius:12px;padding:11px 13px;display:flex;gap:10px}
+.comm-ava{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1a73e8,#4a9fff);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.comm-ava.c2{background:linear-gradient(135deg,#ea4335,#ff6f5e)}
+.comm-ava.c3{background:linear-gradient(135deg,#fbbc04,#ffd76a)}
+.comm-ava.c4{background:linear-gradient(135deg,#34a853,#6fd48a)}
+.comm-ava.c5{background:linear-gradient(135deg,#9c27b0,#ba68c8)}
+.comm-ava.c6{background:linear-gradient(135deg,#00acc1,#4dd0e1)}
+.comm-body{flex:1;min-width:0}
+.comm-top{display:flex;align-items:baseline;gap:8px;margin-bottom:3px}
+.comm-name{font-size:12px;font-weight:700;color:#202124}
+.comm-time{font-size:10px;color:#9aa0a6}
+.comm-text{font-size:12px;color:#3c4043;line-height:1.45;margin-bottom:5px}
+.comm-text strong{color:#1a73e8;font-weight:600}
+.comm-likes{display:flex;align-items:center;gap:5px;font-size:10px;color:#5f6368}
+.comm-likes svg{width:12px;height:12px}
+
+.comm-close{text-align:center;font-size:11px;color:#9aa0a6;margin:12px 0 0;font-style:italic}
+
+/* BOTTOM NAV */
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:420px;background:#fff;border-top:1px solid #e8eaed;padding:8px 4px 10px;display:flex;justify-content:space-around;align-items:flex-start;z-index:50;box-shadow:0 -4px 14px rgba(0,0,0,.05)}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px;cursor:pointer;text-decoration:none;color:#9aa0a6;position:relative}
+.nav-item.active{color:#1a73e8}
+.nav-item.active svg{stroke:#1a73e8}
+.nav-item svg{width:22px;height:22px;stroke:#9aa0a6;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nav-lbl{font-size:10px;font-weight:600}
+.nav-highlight{background:#34a853;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:-14px;box-shadow:0 4px 12px rgba(52,168,83,.4)}
+.nav-highlight svg{stroke:#fff;width:22px;height:22px}
+.nav-item .dot-red{position:absolute;top:-2px;right:12px;width:14px;height:14px;background:#ea4335;border-radius:50%;border:2px solid #fff;font-size:8px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <img src="logo.png" alt="G Cashbacks" class="hdr-logo" onerror="this.style.display='none'">
+    <div class="hdr-right">
+      <span class="hdr-bal" id="hdrBal">$ 0,00</span>
+      <div class="hdr-user">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+        <span class="hdr-user-dot">1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN BANNER -->
+  <div class="countdown">
+    <span class="countdown-ico">⏰</span>
+    <span class="countdown-txt"><strong id="todayDate">Tuesday, April 21, 2026</strong> is the last day to access this application.</span>
+  </div>
+
+  <!-- TITLE -->
+  <div class="vsl-title">Check out this presentation to find out how to<br>withdraw your money...</div>
+
+  <!-- VIDEO FRAME -->
+  <div class="video-frame" onclick="startVideo()">
+    <div class="video-stripe"></div>
+    <div class="video-inner">
+      <div class="video-msg">You have been selected and must watch the video all the way through in order to withdraw your money.</div>
+      <div class="video-actions">
+        <div class="video-act">
+          <div class="video-act-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <span>Continue watching</span>
+        </div>
+        <div class="video-act">
+          <div class="video-act-ico"><svg viewBox="0 0 24 24"><path d="M12 4V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg></div>
+          <span>Watch from the beginning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE COUNTER -->
+  <div class="live">
+    <span class="live-dot"></span>
+    <span class="live-count" id="liveCount">2,238</span>
+    <span>people watching now</span>
+  </div>
+
+  <!-- DARK BALANCE -->
+  <div class="dark-bal">
+    <div class="dark-bal-ico">$</div>
+    <div class="dark-bal-body">
+      <div class="dark-bal-lbl">Your live balance</div>
+      <div class="dark-bal-amt" id="liveBal">$0.00</div>
+    </div>
+    <div class="dark-bal-tag">EARNING</div>
+  </div>
+
+  <!-- VIDEO PROGRESS -->
+  <div class="vprog">
+    <div class="vprog-row">
+      <div class="vprog-lbl"><div class="vprog-lbl-ico"></div>Video progress</div>
+      <span class="vprog-pct" id="vpct">5%</span>
+    </div>
+    <div class="vprog-bar"><div class="vprog-fill" id="vfill"></div></div>
+    <div class="vprog-milestones">
+      <span class="vprog-ms-intro">Watch the full video</span>
+      <span>25%</span><span>50%</span><span>73%</span><span>100%</span>
+    </div>
+  </div>
+
+  <!-- BONUSES -->
+  <div class="bonus-card">
+    <div class="bonus-head">
+      <div class="bonus-head-lbl"><div class="bonus-head-ico">$</div>Your Extra Income Bonuses</div>
+      <div class="bonus-total" id="bonusTotal">$15.00</div>
+    </div>
+    <div class="bonus-row">
+      <div class="bonus-ico green">$</div>
+      <span class="bonus-name">Welcome Bonus</span>
+      <span class="bonus-amt">+$15.00</span>
+    </div>
+    <div class="bonus-row" id="loyaltyRow" style="display:none">
+      <div class="bonus-ico blue">$</div>
+      <span class="bonus-name">Loyalty Bonus</span>
+      <span class="bonus-amt">+$20.00</span>
+    </div>
+    <div class="bonus-foot" id="bonusFoot">9 bonuses remaining to unlock</div>
+  </div>
+
+  <!-- COMMENTS -->
+  <div class="comm-head"><span class="comm-head-dot"></span>Showing 8 comments of 724</div>
+
+  <div class="comments">
+    <div class="comment">
+      <div class="comm-ava">M</div>
+      <div class="comm-body">
+        <div class="comm-top"><span class="comm-name">Maria G.</span><span class="comm-time">30 min ago</span></div>
+        <div class="comm-text">I couldn't believe it when it arrived in my account! $230 in less than 10 minutes via transfer. Thank you so much for this video, it saved my month!</div>
+        <div class="comm-likes">👍 234</div>
+      </div>
+    </div>
+    <div class="comment">
+      <div class="comm-ava c2">L</div>
+      <div class="comm-body">
+        <div class="comm-top"><span class="comm-name">Lucy V.</span><span class="comm-time">20 min ago</span></div>
+        <div class="comm-text">Girl, did this really work? Is it true?</div>
+        <div class="comm-likes">👍 18</div>
+      </div>
+    </div>
+    <div class="comment">
+      <div class="comm-ava">M</div>
+      <div class="comm-body">
+        <div class="comm-top"><span class="comm-name">Maria G.</span><span class="comm-time">20 min ago</span></div>
+        <div class="comm-text">Yes, you have to watch <strong>the video until the end</strong> to make your withdrawal. It's very fast and I've already withdrawn over $100, plus the $230 I had already withdrawn. I'm in shock.</div>
+        <div class="comm-likes">👍 47</div>
+      </div>
+    </div>
+    <div class="comment">
+      <div class="comm-ava c3">C</div>
+      <div class="comm-body">
+        <div class="comm-top"><span class="comm-name">Carlos R.</span><span class="comm-time">5 min ago</span></div>
+        <div class="comm-text">I confess that at first I thought it was a scam, I was very suspicious. But I watched the full video, understood how it works and decided to try. It's REAL! It arrived in 5 minutes. Sorry for doubting!</div>
+        <div class="comm-likes">👍 189</div>
+      </div>
+    </div>
+    <div class="comment">
+      <div class="comm-ava c4">A</div>
+      <div class="comm-body">
+        <div class="comm-top"><span class="comm-name">Anna P.</span><span class="comm-time">2 min ago</span></div>
+        <div class="comm-text">My mom sent me this link and I thought "here comes the scam" lol but I did it to get her to stop insisting. GUYS?? It actually arrived!! Now I'm the one sending it to everyone!</div>
+        <div class="comm-likes">👍 212</div>
+      </div>
+    </div>
+    <div class="comment">
+      <div class="comm-ava c5">R</div>
+      <div class="comm-body">
+        <div class="comm-top"><span class="comm-name">Robert S.</span><span class="comm-time">12 min ago</span></div>
+        <div class="comm-text">I've worked in IT for 15 years and can confirm: this is legit. Google really has these accumulated cashback programs. I did mine and received instantly. Recommend watching the full video to understand!</div>
+        <div class="comm-likes">👍 456</div>
+      </div>
+    </div>
+    <div class="comment">
+      <div class="comm-ava c6">J</div>
+      <div class="comm-body">
+        <div class="comm-top"><span class="comm-name">Jessica M.</span><span class="comm-time">8 min ago</span></div>
+        <div class="comm-text">Just received mine! I'm crying happy tears. Keep watching guys, it's worth it.</div>
+        <div class="comm-likes">👍 98</div>
+      </div>
+    </div>
+    <div class="comment">
+      <div class="comm-ava c2">D</div>
+      <div class="comm-body">
+        <div class="comm-top"><span class="comm-name">Daniel K.</span><span class="comm-time">3 min ago</span></div>
+        <div class="comm-text">Watching now, already at 40% — fingers crossed 🙏</div>
+        <div class="comm-likes">👍 22</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comm-close">Comments section closed until the end of the presentation</div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="nav">
+  <a class="nav-item active" href="#">
+    <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg>
+    <span class="nav-lbl">Home</span>
+  </a>
+  <a class="nav-item" href="#">
+    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21v-7a3 3 0 0 0-3-3H6"/><circle cx="17" cy="14" r="1.2"/></svg>
+    <span class="nav-lbl">Wallet</span>
+  </a>
+  <a class="nav-item" href="#" style="margin-top:-4px">
+    <div class="nav-highlight">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 .9-4.5 4.4 1.1 6.1L12 16.5 6.4 19.4 7.5 13.3 3 8.9 9 8z" fill="#fff"/></svg>
+    </div>
+    <span class="nav-lbl" style="color:#34a853;font-weight:700">Redeem</span>
+  </a>
+  <a class="nav-item" href="#">
+    <svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7a3 3 0 1 1-3-3 4 4 0 0 1 3 3a4 4 0 0 1 3-3 3 3 0 1 1-3 3z"/></svg>
+    <span class="nav-lbl">Bonus</span>
+  </a>
+  <a class="nav-item" href="#">
+    <span class="dot-red">1</span>
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+    <span class="nav-lbl">Profile</span>
+  </a>
+</nav>
+
+<script>
+/* Read sessionStorage balance; default to 230.00 */
+const startBal = parseFloat(sessionStorage.getItem('gcb_bal') || '230');
+let liveBalance = startBal;
+const fmt = n => '$' + n.toFixed(2);
+const fmtC = n => '$ ' + n.toFixed(2).replace('.',',');
+
+document.getElementById('hdrBal').textContent = fmtC(liveBalance);
+document.getElementById('liveBal').textContent = fmt(liveBalance);
+
+/* Today's date */
+document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'}) + ' is the last day to access this application.';
+/* Keep only the date portion before "is" since template already has "is" */
+const today = new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+document.getElementById('todayDate').textContent = today;
+
+/* Live viewers counter fluctuates */
+let viewers = 2238;
+setInterval(()=>{
+  const delta = Math.floor(Math.random()*11) - 4;
+  viewers = Math.max(2100, Math.min(2600, viewers + delta));
+  document.getElementById('liveCount').textContent = viewers.toLocaleString('en-US');
+}, 2200);
+
+/* Balance keeps earning slowly */
+setInterval(()=>{
+  liveBalance += (Math.random()*0.12);
+  document.getElementById('hdrBal').textContent = fmtC(liveBalance);
+  document.getElementById('liveBal').textContent = fmt(liveBalance);
+}, 1500);
+
+/* Video progress ticks up, unlocking bonuses at milestones */
+let pct = 5;
+let loyaltyUnlocked = false;
+setInterval(()=>{
+  if(pct>=100)return;
+  pct = Math.min(100, pct + 1);
+  document.getElementById('vpct').textContent = pct + '%';
+  document.getElementById('vfill').style.width = pct + '%';
+  if(pct>=25 && !loyaltyUnlocked){
+    loyaltyUnlocked = true;
+    document.getElementById('loyaltyRow').style.display='flex';
+    document.getElementById('bonusTotal').textContent='$35.00';
+    document.getElementById('bonusFoot').textContent='8 bonuses remaining to unlock';
+  }
+},6000);
+
+function startVideo(){
+  /* Placeholder — here you would redirect to the real VSL / offer link */
+  if(confirm('Starting the presentation now. Continue?')){
+    /* replace with real Hotmart link */
+    /* window.location.href='https://go.hotmart.com/YOUR_OFFER_LINK'; */
+  }
+}
+
+/* Back redirect — same pattern as withdraw */
+history.pushState({gcb:'vsl'},'',window.location.href);
+window.addEventListener('popstate',function(){
+  history.pushState({gcb:'vsl'},'',window.location.href);
+  alert('You must complete the presentation to withdraw your money.');
+});
+</script>
+</body>
+</html>
