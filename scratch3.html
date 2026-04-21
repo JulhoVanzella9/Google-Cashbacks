@@ -49,9 +49,10 @@ body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-heigh
 .ai-lbl{font-size:9px;color:#1a73e8;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
 .card-body{padding:16px}
 .card-title{font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:#1a73e8;text-align:center;line-height:1.5;margin-bottom:12px}
-.val-box{background:linear-gradient(135deg,#e6f4ea,#f8fff9);border:1px solid #ceead6;border-radius:14px;padding:10px 20px;text-align:center;margin-bottom:14px}
+.val-box{background:linear-gradient(135deg,#e6f4ea,#f8fff9);border:1px solid #ceead6;border-radius:14px;padding:10px 20px;text-align:center;margin-bottom:12px}
 .val-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#5f6368;margin-bottom:3px}
 .val-amt{font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:#34a853;line-height:1}
+.scratch-wrap{transition:opacity .4s}
 .scratch-zone{position:relative;border-radius:14px;overflow:hidden;border:1px solid #e8eaed}
 .s-reveal{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#fff}
 .s-code{font-family:'Sora',sans-serif;font-size:32px;font-weight:800;letter-spacing:.4em;padding-left:.4em;color:#202124}
@@ -69,45 +70,37 @@ body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-heigh
 .s-foot-txt{font-size:9px;color:#9aa0a6}
 .s-pct{font-size:9px;color:#9aa0a6;transition:color .3s}
 .s-pct.done{color:#34a853;font-weight:600}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;opacity:0;pointer-events:none;transition:opacity .35s}
-.overlay.show{opacity:1;pointer-events:auto}
-.sheet{position:fixed;bottom:0;left:50%;transform:translateX(-50%) translateY(100%);width:100%;max-width:420px;background:#fff;border-radius:28px 28px 0 0;z-index:101;padding:20px 24px 36px;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
-.sheet.show{transform:translateX(-50%) translateY(0)}
-.sheet-handle{width:40px;height:4px;background:#e8eaed;border-radius:2px;margin:0 auto 20px}
-.sheet-icon{text-align:center;font-size:48px;margin-bottom:8px}
-.sheet-title{font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:#202124;text-align:center;margin-bottom:4px}
-.sheet-sub{font-size:12px;color:#5f6368;text-align:center;margin-bottom:16px;line-height:1.5}
-.sheet-code-display{background:#f1f3f4;border-radius:12px;padding:12px;text-align:center;margin-bottom:14px}
-.sheet-code-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#5f6368;margin-bottom:4px}
-.sheet-code-val{font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:#202124;letter-spacing:.3em}
-.code-input-wrap{margin-bottom:14px}
-.code-input-lbl{font-size:11px;color:#5f6368;margin-bottom:5px;font-weight:500}
-.code-input{width:100%;border:2px solid #dadce0;border-radius:12px;padding:12px 14px;font-family:'Sora',sans-serif;font-size:18px;font-weight:700;text-align:center;letter-spacing:.25em;color:#202124;outline:none;transition:border-color .2s;text-transform:uppercase;background:#fff}
-.code-input:focus{border-color:#1a73e8}
-.code-input.valid{border-color:#34a853;background:#f6fef8}
-.claim-btn-3d{width:100%;background:none;border:none;cursor:pointer;outline:none;padding:0;-webkit-tap-highlight-color:transparent}
-.claim-btn-face{background:linear-gradient(160deg,#1e7a39 0%,#34a853 60%,#46d368 100%);border-radius:16px;padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 7px 0 #145c28,0 10px 20px rgba(52,168,83,.35),inset 0 1px 0 rgba(255,255,255,.2);transition:box-shadow .12s,transform .12s;position:relative;overflow:hidden}
-.claim-btn-3d:active .claim-btn-face{transform:translateY(5px);box-shadow:0 2px 0 #145c28,0 4px 10px rgba(52,168,83,.2)}
-.claim-btn-3d:hover .claim-btn-face{transform:translateY(-2px);box-shadow:0 9px 0 #145c28,0 14px 28px rgba(52,168,83,.4)}
-.claim-btn-txt{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:.01em}
-.claim-btn-ico{font-size:18px}
+.reveal-area{display:none;animation:revealIn .5s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes revealIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.code-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1px solid #ffe082;border-radius:14px;padding:10px 20px;text-align:center;margin-bottom:14px}
+.code-box-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#f9a825;margin-bottom:4px;font-weight:600}
+.code-box-val{font-family:'Sora',sans-serif;font-size:30px;font-weight:800;color:#5d4037;letter-spacing:.4em;padding-left:.4em}
+.entry-lbl{font-size:12px;color:#5f6368;text-align:center;margin-bottom:10px}
+.entry-lbl a{color:#1a73e8;font-weight:600;text-decoration:none}
+.letter-row{display:flex;justify-content:center;gap:10px;margin-bottom:16px}
+.letter-box{width:52px;height:58px;border:2px solid #dadce0;border-radius:12px;font-family:'Sora',sans-serif;font-size:22px;font-weight:800;text-align:center;color:#202124;outline:none;background:#fff;transition:border-color .2s,box-shadow .2s,transform .15s;text-transform:uppercase;caret-color:#1a73e8;-webkit-appearance:none}
+.letter-box:focus{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.15)}
+.letter-box.filled{border-color:#34a853;background:#f6fef8}
+.letter-box.wrong{border-color:#ea4335;background:#fff0ef;animation:shake .35s both}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.claim-btn-3d{width:100%;background:none;border:none;cursor:pointer;outline:none;padding:0;-webkit-tap-highlight-color:transparent;transition:opacity .25s}
+.claim-btn-3d.disabled{opacity:.45;pointer-events:none}
+.claim-btn-face{background:linear-gradient(160deg,#1e7a39 0%,#34a853 60%,#46d368 100%);border-radius:16px;padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 7px 0 #145c28,0 10px 20px rgba(52,168,83,.35),inset 0 1px 0 rgba(255,255,255,.2);transition:box-shadow .12s,transform .12s}
+.claim-btn-3d.disabled .claim-btn-face{background:linear-gradient(160deg,#9e9e9e 0%,#bdbdbd 100%);box-shadow:0 7px 0 #757575,0 10px 20px rgba(0,0,0,.12)}
+.claim-btn-3d:not(.disabled):active .claim-btn-face{transform:translateY(5px);box-shadow:0 2px 0 #145c28,0 4px 10px rgba(52,168,83,.2)}
+.claim-btn-3d:not(.disabled):hover .claim-btn-face{transform:translateY(-2px);box-shadow:0 9px 0 #145c28,0 14px 28px rgba(52,168,83,.4)}
+.claim-btn-txt{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:.02em;text-transform:uppercase}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
 <div class="app">
   <div class="hdr">
-    <div class="logo-wrap">
-      <img src="logo.png" alt="" class="logo-img" onerror="this.style.display='none'">
-      <span class="logo-txt">G CashBacks</span>
-    </div>
+    <div class="logo-wrap"><img src="logo.png" alt="" class="logo-img" onerror="this.style.display='none'"><span class="logo-txt">G CashBacks</span></div>
     <span class="hdr-sub">Official Cashback Recovery Program</span>
   </div>
   <div class="bal-row">
-    <div class="bal-left">
-      <div class="bal-label">Your current balance</div>
-      <div class="bal-val" id="balVal">$ 0,00</div>
-    </div>
+    <div class="bal-left"><div class="bal-label">Your current balance</div><div class="bal-val" id="balVal">$ 0,00</div></div>
     <div class="bal-ico">💰</div>
   </div>
   <div class="prog">
@@ -128,38 +121,38 @@ body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-heigh
       <div class="ai-chip"><div class="ai-dot"></div><span class="ai-lbl">Google AI</span></div>
     </div>
     <div class="card-body">
-      <h2 class="card-title">Google AI detected a cashback you can redeem at <span>PayPal</span></h2>
-      <div class="val-box"><div class="val-lbl">Value to receive</div><div class="val-amt">$ 44,68</div></div>
-      <div class="scratch-zone">
-        <div class="s-reveal">
-          <div class="s-code" id="sCode">NX2R</div>
-          <div class="s-stars" id="sStars"><span class="s-star">★</span><span class="s-star">★</span><span class="s-star">★</span><span class="s-star">★</span><span class="s-star">★</span></div>
+      <h2 class="card-title">Google AI has detected this cashback<br>that can be redeemed at PayPal</h2>
+      <div id="scratchWrap" class="scratch-wrap">
+        <div class="scratch-zone">
+          <div class="s-reveal">
+            <div class="s-code">NX2R</div>
+            <div class="s-stars" id="sStars"><span class="s-star">★</span><span class="s-star">★</span><span class="s-star">★</span><span class="s-star">★</span><span class="s-star">★</span></div>
+          </div>
+          <canvas class="s-canvas" id="sCanvas"></canvas>
+          <div class="s-hint" id="sHint"><div class="s-hand">☝️</div><div class="s-hint-txt">Scratch to reveal the code</div></div>
         </div>
-        <canvas class="s-canvas" id="sCanvas"></canvas>
-        <div class="s-hint" id="sHint"><div class="s-hand">☝️</div><div class="s-hint-txt">Scratch to reveal the code</div></div>
+        <div class="s-foot"><span class="s-foot-txt">Scratch with your finger</span><span class="s-pct" id="sPct">0%</span></div>
       </div>
-      <div class="s-foot"><span class="s-foot-txt">Scratch with your finger</span><span class="s-pct" id="sPct">0%</span></div>
+      <div id="revealArea" class="reveal-area">
+        <div class="val-box"><div class="val-lbl">Value to receive</div><div class="val-amt">$ 44,68</div></div>
+        <div class="code-box"><div class="code-box-lbl">Secret code</div><div class="code-box-val">N X 2 R</div></div>
+        <div class="entry-lbl">Enter the <a href="#">code</a> to redeem</div>
+        <div class="letter-row">
+          <input class="letter-box" id="lb0" maxlength="1" autocomplete="off" autocorrect="off" spellcheck="false" inputmode="text">
+          <input class="letter-box" id="lb1" maxlength="1" autocomplete="off" autocorrect="off" spellcheck="false" inputmode="text">
+          <input class="letter-box" id="lb2" maxlength="1" autocomplete="off" autocorrect="off" spellcheck="false" inputmode="text">
+          <input class="letter-box" id="lb3" maxlength="1" autocomplete="off" autocorrect="off" spellcheck="false" inputmode="text">
+        </div>
+        <button class="claim-btn-3d disabled" id="claimBtn" onclick="claimCode()">
+          <div class="claim-btn-face"><span class="claim-btn-txt">Redeem Cashback</span></div>
+        </button>
+      </div>
     </div>
   </div>
 </div>
-<div class="overlay" id="overlay"></div>
-<div class="sheet" id="sheet">
-  <div class="sheet-handle"></div>
-  <div class="sheet-icon">🎉</div>
-  <div class="sheet-title">Code Revealed!</div>
-  <div class="sheet-sub">Enter the code below to confirm<br>and claim your cashback</div>
-  <div class="sheet-code-display"><div class="sheet-code-lbl">Your code</div><div class="sheet-code-val" id="sheetCode">NX2R</div></div>
-  <div class="code-input-wrap">
-    <div class="code-input-lbl">Enter the code to confirm:</div>
-    <input type="text" class="code-input" id="codeInput" maxlength="6" autocomplete="off" autocorrect="off" spellcheck="false" oninput="checkCode()">
-  </div>
-  <button class="claim-btn-3d" id="claimBtn" onclick="claimCode()">
-    <div class="claim-btn-face"><span class="claim-btn-ico">🎁</span><span class="claim-btn-txt" id="claimTxt">Enter the code above</span></div>
-  </button>
-</div>
 <script>
 const CFG={step:3,store:'PayPal',val:'$ 44,68',raw:44.68,code:'NX2R',next:'withdraw.html'};
-const bal=parseFloat(sessionStorage.getItem('gcb_bal')||String(179.60));
+const bal=parseFloat(sessionStorage.getItem('gcb_bal')||'179.60');
 let revealed=false,painting=false,measureTimer=null,CV,CX;
 (function(){const el=document.getElementById('balVal');const dur=900,start=performance.now();const tick=now=>{const t=Math.min((now-start)/dur,1);const e=1-Math.pow(1-t,3);el.textContent='$ '+(bal*e).toFixed(2).replace('.',',');if(t<1)requestAnimationFrame(tick)};requestAnimationFrame(tick)})();
 window.addEventListener('load',()=>requestAnimationFrame(()=>requestAnimationFrame(initScratch)));
@@ -168,11 +161,18 @@ function drawCoat(){const w=CV.width,h=CV.height;const g=CX.createLinearGradient
 function getXY(e,c){const r=c.getBoundingClientRect();const sx=c.width/r.width,sy=c.height/r.height;const src=e.touches?e.touches[0]:e;return{x:(src.clientX-r.left)*sx,y:(src.clientY-r.top)*sy}}
 function erase(x,y,r){CX.globalCompositeOperation='destination-out';const g=CX.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(.5,'rgba(0,0,0,.9)');g.addColorStop(1,'rgba(0,0,0,0)');CX.fillStyle=g;CX.beginPath();CX.arc(x,y,r,0,Math.PI*2);CX.fill();CX.globalCompositeOperation='source-over';clearTimeout(measureTimer);measureTimer=setTimeout(measure,80)}
 function measure(){if(revealed)return;const d=CX.getImageData(0,0,CV.width,CV.height).data;let trans=0,tot=0;for(let i=3;i<d.length;i+=16){tot++;if(d[i]<128)trans++}const p=Math.min(100,Math.round(trans/tot*100));document.getElementById('sPct').textContent=p+'%';if(p>5)document.getElementById('sHint').style.opacity='0';if(p>=42)doReveal()}
-function doReveal(){if(revealed)return;revealed=true;CX.clearRect(0,0,CV.width,CV.height);document.getElementById('sPct').textContent='100%';document.getElementById('sPct').classList.add('done');document.getElementById('sHint').style.opacity='0';const sw=document.getElementById('sStars');sw.style.opacity='1';sw.querySelectorAll('.s-star').forEach(s=>{void s.offsetWidth;s.classList.add('pop')});setTimeout(openSheet,600)}
+function doReveal(){if(revealed)return;revealed=true;CX.clearRect(0,0,CV.width,CV.height);document.getElementById('sPct').textContent='100%';document.getElementById('sPct').classList.add('done');document.getElementById('sHint').style.opacity='0';const sw=document.getElementById('sStars');sw.style.opacity='1';sw.querySelectorAll('.s-star').forEach(s=>{void s.offsetWidth;s.classList.add('pop')});setTimeout(showRevealArea,700)}
+function showRevealArea(){const wrap=document.getElementById('scratchWrap');wrap.style.transition='opacity .35s';wrap.style.opacity='0';setTimeout(()=>{wrap.style.display='none';const ra=document.getElementById('revealArea');ra.style.display='block';ra.style.animation='revealIn .5s cubic-bezier(.34,1.56,.64,1) both';setTimeout(()=>document.getElementById('lb0').focus(),300)},350)}
 function onDown(e){if(revealed)return;painting=true;const p=getXY(e,CV);erase(p.x,p.y,32);const mv=ev=>{if(!painting)return;const q=getXY(ev,CV);erase(q.x,q.y,32)};const up=()=>{painting=false;document.removeEventListener('mousemove',mv);document.removeEventListener('mouseup',up);document.removeEventListener('touchmove',mv);document.removeEventListener('touchend',up)};document.addEventListener('mousemove',mv);document.addEventListener('mouseup',up);document.addEventListener('touchmove',mv,{passive:true});document.addEventListener('touchend',up)}
-function openSheet(){document.getElementById('sheetCode').textContent=CFG.code;document.getElementById('codeInput').value='';document.getElementById('claimTxt').textContent='Enter the code above';document.getElementById('claimBtn').style.opacity='.5';document.getElementById('claimBtn').style.pointerEvents='none';document.getElementById('overlay').classList.add('show');document.getElementById('sheet').classList.add('show');setTimeout(()=>document.getElementById('codeInput').focus(),400)}
-function checkCode(){const inp=document.getElementById('codeInput');const val=inp.value.trim().toUpperCase();const ok=val===CFG.code.toUpperCase();inp.classList.toggle('valid',ok);document.getElementById('claimBtn').style.opacity=ok?'1':'.5';document.getElementById('claimBtn').style.pointerEvents=ok?'auto':'none';document.getElementById('claimTxt').textContent=ok?'Claim Cashback  →':'Enter the code above'}
-function claimCode(){const val=document.getElementById('codeInput').value.trim().toUpperCase();if(val!==CFG.code.toUpperCase())return;if(navigator.vibrate)navigator.vibrate([20,10,20]);sessionStorage.setItem('gcb_bal',String(bal+CFG.raw));sessionStorage.setItem('gcb_step','done');window.location.href=CFG.next}
+const CODE=CFG.code.toUpperCase();
+const boxes=[0,1,2,3].map(i=>document.getElementById('lb'+i));
+boxes.forEach((box,i)=>{
+  box.addEventListener('input',()=>{const v=box.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase();box.value=v?v[0]:'';if(v)box.classList.add('filled');else box.classList.remove('filled');box.classList.remove('wrong');if(v&&i<3)boxes[i+1].focus();checkAllFilled()});
+  box.addEventListener('keydown',e=>{if(e.key==='Backspace'&&!box.value&&i>0){boxes[i-1].focus();boxes[i-1].value='';boxes[i-1].classList.remove('filled','wrong')}if(e.key==='Enter')claimCode()});
+  box.addEventListener('paste',e=>{e.preventDefault();const txt=(e.clipboardData||window.clipboardData).getData('text').toUpperCase().replace(/[^A-Z0-9]/g,'');txt.split('').slice(0,4).forEach((c,j)=>{if(boxes[j]){boxes[j].value=c;boxes[j].classList.add('filled')}});if(txt.length>=4)boxes[3].focus();else if(txt.length>0&&txt.length<4)boxes[txt.length].focus();checkAllFilled()});
+});
+function checkAllFilled(){const full=boxes.every(b=>b.value.length===1);const btn=document.getElementById('claimBtn');if(full)btn.classList.remove('disabled');else btn.classList.add('disabled')}
+function claimCode(){const entered=boxes.map(b=>b.value.toUpperCase()).join('');if(entered!==CODE){boxes.forEach(b=>{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),400)});return}if(navigator.vibrate)navigator.vibrate([20,10,20]);sessionStorage.setItem('gcb_bal',String(bal+CFG.raw));sessionStorage.setItem('gcb_step','done');window.location.href=CFG.next}
 window.addEventListener('resize',()=>{if(CV&&!revealed){CV.width=CV.offsetWidth||CV.parentElement.offsetWidth;CV.height=CV.offsetHeight||100;drawCoat()}});
 </script>
 </body>
